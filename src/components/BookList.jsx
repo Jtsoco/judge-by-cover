@@ -5,7 +5,8 @@ import Book from "./Book";
 const BookList = (props) => {
   const { items, setSelectedImageUrl } = props;
   console.log(items);
-  const imgUrls = items.map(item => item["volumeInfo"]["imageLinks"]["thumbnail"]);
+  const filterOne = items.filter(item => "imageLinks" in item["volumeInfo"])
+  const imgUrls = filterOne.map(item => item["volumeInfo"]["imageLinks"]["thumbnail"]);
   return (
     <div className="container">
       <div className="row">

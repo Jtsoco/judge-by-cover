@@ -24,7 +24,7 @@ function App() {
   const [items, setItems] = useState(basicItems);
 
   function googleSearch(term) {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:${term}`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${term}&maxResults=40`)
       .then(res => res.json())
       .then(
         (result) => {
