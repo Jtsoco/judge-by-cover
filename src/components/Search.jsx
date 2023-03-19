@@ -1,8 +1,12 @@
 import React from 'react';
 
-const Search = () => {
+const Search = (props) => {
+  const {googleSearch, setItems} = props
+  const handleSubmit = () => {
+   googleSearch("fantasy");
+  };
   return (
-    <input type="text" className='form-search form-control'/>
+    <input type="text" className='form-search form-control' onChange={handleSubmit}/>
   );
 };
 

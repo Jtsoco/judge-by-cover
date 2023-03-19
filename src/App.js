@@ -9,21 +9,40 @@ import { useState } from 'react';
 
 function App() {
   const imageUrlsArr = ["https://books.google.co.jp/books/content?id=6euuGTGqRz8C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE709PE7hH1s-4ppDGHaOh67lgfq5DF7Tn_tjPSConXHW34wBf0Ude61UwA9-qwNPibFTm0Des7qkzpTFzZqhAg-gQAArq1CD-e5Z1H1Q1Vy4JSx3hcSC54oLjOIB5MFbkBe4pmqP", "https://books.google.co.jp/books/content?id=hRqWPwAACAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE7180OTIFEto_ZZ8FkVpg3mZchk5K644LKeLMibGhFjbDe9IWHbjDBk6fMADiArxr9YZi9YSL8-9SgR2XEMOfVTPoVSkXt4Ckx3Ai3eo0qTwxC1xjN300LJioZW0LDDHOvDF5P53", "https://books.google.co.jp/books/content?id=OHclhBVv-X4C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73Z2wcC4j9elFXzl1sD50frccrsaDWAa0K1a_CRi4T8JT094uKdnK_TH561TRSvO4tdNQD5ionnwMjBrSD-7VBfDLFSTYp5dLrKwTUZiXQ5DT4tRAfF3oWePzqGmAUt90NVM4ie", "https://books.google.co.jp/books/publisher/content?id=kYjqAQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72f5mK36SG4mRNfk4Q-RzrK24ssmIDK586NhtcZAMVio8xXOpPRzJUVsHgXhn_oPVG_Mq-MPZveu3a9zkb4Bqp3xv8-GYWHsKFtAhFZA04yyGeJ_whPYMcsWFWqSrZkKX3wCeQn" ];
+  const basicItems = [
+    {"volumeInfo": {
+      "imageLinks": {
+        "thumbnail": "https://books.google.co.jp/books/publisher/content?id=kYjqAQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72f5mK36SG4mRNfk4Q-RzrK24ssmIDK586NhtcZAMVio8xXOpPRzJUVsHgXhn_oPVG_Mq-MPZveu3a9zkb4Bqp3xv8-GYWHsKFtAhFZA04yyGeJ_whPYMcsWFWqSrZkKX3wCeQn"
+      }
+    }}
+  ]
   const imageUrl="https://books.google.co.jp/books/content?id=6euuGTGqRz8C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE709PE7hH1s-4ppDGHaOh67lgfq5DF7Tn_tjPSConXHW34wBf0Ude61UwA9-qwNPibFTm0Des7qkzpTFzZqhAg-gQAArq1CD-e5Z1H1Q1Vy4JSx3hcSC54oLjOIB5MFbkBe4pmqP";
   // const selectedImageUrl = imageUrl;
   const [selectedImageUrl, setSelectedImageUrl] = useState(imageUrl);
   // setSelectedImageUrl("");
-  const [imageUrls, setImageUrls] = useState(imageUrlsArr)
+  const [imageUrls, setImageUrls] = useState(imageUrlsArr);
+  const [items, setItems] = useState(basicItems);
+
+  function googleSearch(term) {
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:${term}`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          console.log(result["items"])
+          setItems(result["items"]);
+        }
+      )
+  };
   return (
     <div className="container">
       <div className="row">
 
         <div className='col-6'>
-          <Search />
+          <Search googleSearch={googleSearch} setItems={setItems} />
           <Book imageUrl={selectedImageUrl} setSelectedImageUrl={setSelectedImageUrl}/>
         </div>
         <div className='col-6'>
-          <BookList imageUrls={imageUrls} setSelectedImageUrl={setSelectedImageUrl}/>
+          <BookList items={items} setSelectedImageUrl={setSelectedImageUrl}/>
         </div>
       </div>
     </div>
