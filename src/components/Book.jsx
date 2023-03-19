@@ -6,8 +6,7 @@ function Book(props) {
   };
   return (
     <div>
-      <img src={imageUrl} alt="a book" className='img-fluid' onClick={handleClick}/>
-      <div className="" style={{color: 'red'}}>I'm a book!</div>
+      <img src={imageUrl} alt="a book" className='img-fluid selected-book-actual' onClick={handleClick}/>
     </div>
 
   );

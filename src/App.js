@@ -40,9 +40,14 @@ function App() {
     <div className="container">
       <div className="row">
 
-        <div className='col-6'>
+        <div className='col-6 d-flex flex-column align-items-center'>
+
           <Search googleSearch={googleSearch} setItems={setItems} />
+          <div className='selected-book'>
+          {/* TODO: add a small image and large image button to the special book
+          also add the info for extra book stuff, like author and title */}
           <Book imageUrl={selectedImageUrl} setSelectedImageUrl={setSelectedImageUrl}/>
+          </div>
         </div>
         <div className='col-6'>
           <BookList items={items} setSelectedImageUrl={setSelectedImageUrl}/>
