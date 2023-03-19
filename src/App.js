@@ -29,7 +29,10 @@ function App() {
       .then(
         (result) => {
           console.log(result["items"])
-          setItems(result["items"]);
+          if (result["totalItems"] >= 1) {
+
+            setItems(result["items"]);
+          }
         }
       )
   };
