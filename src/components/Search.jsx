@@ -2,11 +2,16 @@ import React from 'react';
 
 const Search = (props) => {
   const {googleSearch, setItems} = props
-  const handleSubmit = () => {
-   googleSearch("fantasy");
+  const handleSubmit = (event) => {
+    if (event.key === "Enter") {
+
+      console.log(event.key)
+      console.log(event.currentTarget.value)
+      googleSearch(event.currentTarget.value);
+    };
   };
   return (
-    <input type="text" className='form-search form-control' onChange={handleSubmit}/>
+    <input type="text" className='form-search form-control' onKeyDown={handleSubmit}/>
   );
 };
 
