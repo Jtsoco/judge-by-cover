@@ -3,13 +3,14 @@ import './App.css';
 import Book from "./components/Book";
 import Search from "./components/Search";
 import BookList from "./components/BookList";
+import SelectedBook from './components/SelectedBook';
 import { useState } from 'react';
 
 
 
 function App() {
-
-  const basicItems = [
+  const basicItems = {}
+  const basicItemss = [
     {
       "kind": "books#volume",
       "id": "QCPBDwAAQBAJ",
@@ -247,7 +248,7 @@ function App() {
         (result) => {
           console.log(result["items"])
           if (result["totalItems"] >= 1) {
-
+            setItems({});
             setItems(result["items"]);
           }
         }
@@ -259,11 +260,11 @@ function App() {
 
         <div className='col-6 d-flex flex-column align-items-center'>
 
-          <Search googleSearch={googleSearch} setItems={setItems} />
+          <Search googleSearch={googleSearch} />
           <div className='selected-book'>
           {/* TODO: add a small image and large image button to the special book
           also add the info for extra book stuff, like author and title */}
-          <Book bookObject={selectedBookObject} setSelectedBookObject={setSelectedBookObject}/>
+          <SelectedBook bookObject={selectedBookObject} setSelectedBookObject={setSelectedBookObject}/>
           </div>
         </div>
         <div className='col-6'>

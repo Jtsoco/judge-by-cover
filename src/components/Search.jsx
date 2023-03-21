@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Search = (props) => {
-  const {googleSearch, setItems} = props
+  const {googleSearch} = props
   const handleSubmit = (event) => {
     if (event.key === "Enter") {
 
-      console.log(event.key)
-      console.log(event.currentTarget.value)
+      console.log(event.key);
+      console.log(event.currentTarget.value);
       googleSearch(event.currentTarget.value);
     };
   };
