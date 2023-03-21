@@ -16,7 +16,7 @@ const SelectedBook = (props) => {
   };
   console.log(bookObject)
   return (
-      <div className='d-flex flex-column justify-content-center align-items-center pt-5'>
+      <div className='d-flex flex-column justify-content-center align-items-center pt-4'>
           <div className='w-100'>
 
             <h2>{bookObject.title}</h2>
@@ -37,7 +37,7 @@ const SelectedBook = (props) => {
              </a>
             </div>
           </div>
-          <div className='my-card'>
+          <div className='my-card w-100'>
             <SelectedBookImage url={url}/>
             <p className='padding-para'>{bookObject.description}</p>
           </div>

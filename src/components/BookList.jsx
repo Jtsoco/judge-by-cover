@@ -8,7 +8,12 @@ const BookList = (props) => {
   // const imgUrls = filterOne.map(item => item["volumeInfo"]["imageLinks"]["thumbnail"]);
   // const imgUrlsBig = imgUrls.map(url => url.replace("zoom=1", "zoom=0"));
   if (Object.keys(items).length === 0) {
-    return <div>Nothing here yet!</div>
+    return <div className='d-flex flex-column align-items-center mt-4 p-5 my-card'>
+      <h2>Judge a book by its cover!</h2>
+      <h4 className='text-center'>Just search some keywords in the search bar, whatever you're feeling, and hit enter. Click them for more info! If the book interests you, the book's google store page is only a click away.</h4>
+
+
+    </div>
   }
   else {
     const filterOne = items.filter(item => "imageLinks" in item["volumeInfo"]);
