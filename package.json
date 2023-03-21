@@ -1,5 +1,6 @@
 {
   "name": "judge-by-cover",
+  "homepage" : "https://Jtsoco.github.io/judge-by-cover",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
