@@ -1,8 +1,9 @@
 import React from 'react'
 function Book(props) {
-  const { bookObject, setSelectedBookObject} = props;
+  const { bookObject, changeSelectBook, changeUrl} = props;
   const handleClick = () => {
-    setSelectedBookObject(bookObject);
+    changeSelectBook(bookObject);
+    changeUrl(bookObject.thumbnail)
   };
   console.log(bookObject.thumbnail)
   return (

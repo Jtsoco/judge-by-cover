@@ -3,7 +3,7 @@ import Book from "./Book";
 
 
 const BookList = (props) => {
-  const { items, setSelectedBookObject } = props;
+  const { items, changeSelectBook, changeUrl} = props;
   console.log(items);
   // const imgUrls = filterOne.map(item => item["volumeInfo"]["imageLinks"]["thumbnail"]);
   // const imgUrlsBig = imgUrls.map(url => url.replace("zoom=1", "zoom=0"));
@@ -28,7 +28,7 @@ const BookList = (props) => {
         {filteredHashes.map( filteredHash =>
 
         <div className='col-lg-4 col-md-6 col-sm-12 mt-3' key={filteredHash.infoLink + filteredHash.thumbnail}>
-          <Book bookObject={filteredHash} key={filteredHash.infoLink + filteredHash.thumbnail} setSelectedBookObject={setSelectedBookObject}/>
+          <Book bookObject={filteredHash} key={filteredHash.infoLink + filteredHash.thumbnail} changeSelectBook={changeSelectBook} changeUrl={changeUrl}/>
         </div>
 
           ) }
