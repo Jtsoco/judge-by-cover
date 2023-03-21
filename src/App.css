@@ -52,3 +52,20 @@
   margin-top: 24px;
   width: 400px;
 }
+
+.padding-scroll {
+  padding-right: 16px;
+}
+
+.margin-right {
+  margin-right: 8px;
+}
+.my-card {
+  box-shadow: 1px 1px 5px rgb(116, 116, 116);
+  padding: 8px;
+  border-radius: .5%;
+}
+
+.padding-para {
+  padding: 8px;
+}

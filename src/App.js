@@ -68,15 +68,10 @@ function App() {
   return (
     <div className="container">
       <div className="row">
-
-        <div className='col-6 d-flex flex-column align-items-center'>
-
+        <div className='col-6 d-flex flex-column selected-book padding-scroll'>
           <Search googleSearch={googleSearch} />
-          <div className='selected-book'>
-          {/* TODO: add a small image and large image button to the special book
-          also add the info for extra book stuff, like author and title */}
-          <SelectedBook bookObject={selectedBookObject} changeUrl={changeUrl} url={url}/>
-          </div>
+
+            <SelectedBook bookObject={selectedBookObject} changeUrl={changeUrl} url={url}/>
         </div>
         <div className='col-6 selected-book'>
           <BookList items={items} changeSelectBook={changeSelectBook} changeUrl={changeUrl}/>
