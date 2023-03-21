@@ -78,7 +78,7 @@ function App() {
           <SelectedBook bookObject={selectedBookObject} changeUrl={changeUrl} url={url}/>
           </div>
         </div>
-        <div className='col-6'>
+        <div className='col-6 selected-book'>
           <BookList items={items} changeSelectBook={changeSelectBook} changeUrl={changeUrl}/>
         </div>
       </div>

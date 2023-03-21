@@ -39,9 +39,10 @@
 }
 
 .selected-book {
-  margin-top: 200px;
-  position: sticky;
-  top: 0px;
+  overflow: scroll;
+  float: left;
+  height: 100vh;
+
 }
 
 .selected-book-actual {
