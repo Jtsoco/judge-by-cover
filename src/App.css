@@ -46,3 +46,8 @@
 
 .selected-book-actual {
 }
+
+.search-bar {
+  margin-top: 24px;
+  width: 400px;
+}

@@ -11,7 +11,9 @@ const Search = (props) => {
     };
   };
   return (
-    <input type="text" className='form-search form-control' onKeyUp={handleSubmit}/>
+    <div className='search-bar'>
+      <input type="text" className='form-search form-control' onKeyUp={handleSubmit}/>
+    </div>
   );
 };
 

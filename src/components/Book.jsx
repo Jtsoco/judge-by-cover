@@ -1,12 +1,13 @@
 import React from 'react'
 function Book(props) {
-  const { imageUrl, setSelectedImageUrl} = props;
+  const { bookObject, setSelectedBookObject} = props;
   const handleClick = () => {
-    setSelectedImageUrl(imageUrl);
+    setSelectedBookObject(bookObject);
   };
+  console.log(bookObject.thumbnail)
   return (
     <div>
-      <img src={imageUrl} alt="a book" className='img-fluid selected-book-actual' onClick={handleClick}/>
+      <img src={bookObject.thumbnail} alt="a book" className='img-fluid selected-book-actual' onClick={handleClick}/>
     </div>
 
   );
